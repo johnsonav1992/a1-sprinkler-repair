@@ -6,32 +6,71 @@ import "../styles/global.css";
 <Layout noPadding>
   <main class="main-content">
     <div class="splash-img"></div>
+    <div class="content-container">
+      <div class="text-content-container">
+        <h1>We have a solution for all your sprinkler repair needs</h1>
+        <p>
+          We specialize in providing top-notch sprinkler repair services to keep
+          your lawn lush and green. We are dedicated to ensuring your irrigation
+          system runs efficiently.
+        </p>
+        <p>
+          Contact us today to schedule a consultation and let us help you
+          maintain a beautiful lawn and landscape!
+        </p>
+      </div>
+      <!-- <img src="''" /> -->
+    </div>
   </main>
 </Layout>
 
 <style>
   .main-content {
-    position: relative;
     width: 100vw;
     min-width: 100vw;
     max-width: 100vw;
     padding: 0;
     margin: 0;
     display: flex;
+    flex-direction: column;
     gap: 2rem;
   }
 
   .splash-img {
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 100vw;
     min-width: 100vw;
     max-width: 100vw;
     background-image: url("/src/assets/sprinkler-2.webp");
     background-size: cover;
-    background-position: center;
-    height: 400px;
-    z-index: 1;
+    background-position: center 20%;
+    height: 500px;
+  }
+
+  @media (min-width: 1440px) {
+    .splash-img {
+      height: 600px;
+    }
+  }
+
+  @media (min-width: 1920px) {
+    .splash-img {
+      height: 700px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .splash-img {
+      height: 400px;
+      background-position: center 30%;
+    }
+  }
+
+  .text-content-container {
+    width: 100%;
+    max-width: 800px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
   }
 </style>
