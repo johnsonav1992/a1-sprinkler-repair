@@ -8,10 +8,8 @@ body {
 }
 
 :root {
-  --color-primary: #3C9A5F;         /* Grass Green */
-  --color-secondary: #4DA6FF;       /* Fresh Sky Blue */
-  --color-accent: #A1E3D8;          /* Dewdrop Aqua */
-  --color-dark-neutral: #2F3E46;    /* Sprinkler Pipe Gray */
-  --color-light-neutral: #F3F7F2;   /* Lawn Mist Off-White */
-  --headerHeight: 80px;
+  --color-primary: #cad0aa;         /* Grass Green */
+  --color-secondary: #212540;       /* Fresh Sky Blue */
+  --color-light-neutral: #e0e2e1;
+  --header-height: 90px;
 }
