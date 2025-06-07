@@ -2,17 +2,20 @@
 type Props = {};
 
 const {} = Astro.props;
+
+const headerHeight = "60px";
 ---
 
 <div class="outer-container"></div>
 
-<style>
+<style define:vars={{ headerHeight }}>
   .outer-container {
     width: 100%;
-    height: 100%;
+    height: var(--headerHeight);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    background-color: red;
   }
 </style>
