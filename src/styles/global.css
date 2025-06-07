@@ -5,6 +5,7 @@ body {
     height: 100%;
     background-color: var(--color-light-neutral);
     font-family: 'Inter', sans-serif;
+    scrollbar-width: none;;
 }
 
 :root {
