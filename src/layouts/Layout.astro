@@ -1,6 +1,12 @@
 ---
 import Header from "../components/Header/Header.astro";
 import PageContainer from "../components/PageContainer/PageContainer.astro";
+
+type Props = {
+  noPadding?: boolean;
+};
+
+const { noPadding } = Astro.props;
 ---
 
 <!doctype html>
@@ -14,7 +20,7 @@ import PageContainer from "../components/PageContainer/PageContainer.astro";
   </head>
   <body>
     <Header />
-    <PageContainer>
+    <PageContainer noPadding={noPadding}>
       <slot />
     </PageContainer>
   </body>

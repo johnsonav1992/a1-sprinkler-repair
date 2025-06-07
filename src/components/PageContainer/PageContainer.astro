@@ -1,4 +1,10 @@
-<div class="page-container">
+---
+type Props = { noPadding?: boolean };
+
+const { noPadding } = Astro.props;
+---
+
+<div class:list={["page-container", { "no-padding": noPadding }]}>
   <slot />
 </div>
 
@@ -7,5 +13,9 @@
     max-width: 1200px;
     margin-top: var(--header-height);
     padding: 1rem;
+  }
+
+  .page-container.no-padding {
+    padding: 0;
   }
 </style>
