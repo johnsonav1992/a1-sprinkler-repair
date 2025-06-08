@@ -12,8 +12,8 @@ body {
 }
 
 :root {
-  --color-primary: #cad0aa;         /* Grass Green */
-  --color-secondary: #212540;       /* Fresh Sky Blue */
+  --color-primary: #cad0aa;     
+  --color-secondary: #212540;       
   --color-light-neutral: #e0e2e1;
   --header-height: 90px;
 }
