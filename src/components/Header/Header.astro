@@ -2,6 +2,25 @@
 type Props = {};
 
 const {} = Astro.props;
+
+const routes = [
+  {
+    path: "/",
+    label: "Home",
+  },
+  {
+    path: "/about",
+    label: "About",
+  },
+  {
+    path: "/services",
+    label: "Services",
+  },
+  {
+    path: "/contact",
+    label: "Contact",
+  },
+];
 ---
 
 <div class="outer-container">
@@ -15,10 +34,13 @@ const {} = Astro.props;
   </div>
   <nav class="main-nav">
     <ul>
-      <li><a href="/">Home</a></li>
-      <li><a href="/about">About</a></li>
-      <li><a href="/services">Services</a></li>
-      <li><a href="/contact">Contact</a></li>
+      {
+        routes.map((route) => (
+          <li>
+            <a href={route.path}>{route.label}</a>
+          </li>
+        ))
+      }
     </ul>
   </nav>
 </div>
@@ -32,12 +54,10 @@ const {} = Astro.props;
     justify-content: space-between;
     position: fixed;
     top: 0;
-    justify-content: space-between;
-    align-items: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
     border-bottom: 1px solid var(--color-light-neutral);
     z-index: 1200;
-    background-color: rgba(255, 255, 255, 0.7);
+    background-color: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(8px);
     padding-left: 1rem;
   }
@@ -46,46 +66,46 @@ const {} = Astro.props;
     display: flex;
     align-items: center;
     margin-right: 1rem;
-  }
 
-  .main-nav ul {
-    display: flex;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
+    ul {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
 
-  .main-nav li {
-    margin: 0 1rem;
-  }
+    li {
+      margin: 0 1rem;
+    }
 
-  .main-nav a {
-    text-decoration: none;
-    color: var(--color-secondary);
-    font-weight: 500;
-    transition: all 0.3s ease;
-    position: relative;
-  }
+    a {
+      text-decoration: none;
+      color: var(--color-secondary);
+      font-weight: 600;
+      font-size: 1.2rem;
+      transition: all 0.3s ease;
+      position: relative;
 
-  .main-nav a:hover {
-    transform: translateY(-2px);
-    cursor: pointer;
-  }
+      &:hover {
+        transform: translateY(-2px);
+        cursor: pointer;
 
-  .main-nav a::after {
-    content: "";
-    position: absolute;
-    width: 0;
-    height: 3px;
-    bottom: -2px;
-    left: 0;
-    border-radius: 2px;
-    background-color: var(--color-primary);
-    transition: width 0.3s ease;
-  }
+        &::after {
+          width: 100%;
+        }
+      }
 
-  .main-nav a:hover::after {
-    width: 100%;
-    cursor: pointer;
+      &::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 3px;
+        bottom: -2px;
+        left: 0;
+        border-radius: 2px;
+        background-color: var(--color-primary);
+        transition: width 0.3s ease;
+      }
+    }
   }
 </style>

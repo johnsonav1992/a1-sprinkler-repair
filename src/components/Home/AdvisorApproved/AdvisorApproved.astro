@@ -1,0 +1,90 @@
+<div class="content-container">
+  <div class="text-content-container">
+    <h1 class="title">
+      We have a solution for all your sprinkler repair needs
+    </h1>
+    <p class="text">
+      We specialize in providing top-notch sprinkler repair services to keep
+      your lawn lush and green. We are dedicated to ensuring your irrigation
+      system runs efficiently.
+    </p>
+    <p class="text">
+      Contact us today to schedule a consultation and let us help you maintain a
+      beautiful lawn and landscape!
+    </p>
+  </div>
+  <div class="approved-container">
+    <img src="./src/assets/approved.png" />
+  </div>
+</div>
+
+<style>
+  .content-container {
+    padding: 2rem;
+    display: flex;
+    gap: 2rem;
+
+    @media (max-width: 1024px) {
+      flex-direction: column;
+      padding: 1.5rem;
+      gap: 1.5rem;
+      align-items: center;
+      padding-top: 0;
+    }
+
+    .text-content-container {
+      flex: 1;
+      max-width: 1200px;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      padding-left: 1rem;
+      padding-top: 1rem;
+
+      @media (max-width: 1024px) {
+        padding-left: 0;
+        gap: 1.5rem;
+      }
+
+      .title {
+        font-size: 2.5rem;
+
+        @media (max-width: 768px) {
+          font-size: 2rem;
+        }
+      }
+
+      .text {
+        font-size: 1.2rem;
+        line-height: 1.5;
+
+        @media (max-width: 768px) {
+          font-size: 1.1rem;
+        }
+      }
+    }
+
+    .approved-container {
+      width: 40%;
+      max-width: 500px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      @media (max-width: 1024px) {
+        width: 100%;
+      }
+
+      img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+
+        @media (max-width: 768px) {
+          max-width: 350px;
+          min-width: 250px;
+        }
+      }
+    }
+  }
+</style>
