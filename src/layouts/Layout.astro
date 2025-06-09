@@ -2,6 +2,7 @@
 import Footer from "../components/Footer/Footer.astro";
 import Header from "../components/Header/Header.astro";
 import PageContainer from "../components/PageContainer/PageContainer.astro";
+import MobileSidebar from "../components/MobileSidebar/MobileSidebar.astro";
 
 type Props = {
   noPadding?: boolean;
@@ -27,6 +28,7 @@ const { noPadding } = Astro.props;
   </head>
   <body>
     <Header />
+    <MobileSidebar />
     <PageContainer noPadding={noPadding}>
       <slot />
     </PageContainer>

@@ -1,0 +1,159 @@
+---
+import { Icon } from "astro-icon/components";
+import { MAIN_ROUTES } from "../../constants/routes-constants";
+const routes = MAIN_ROUTES;
+---
+
+<div
+  class="sidebar-toggle"
+  id="sidebar-toggle"
+  tabindex="0"
+  aria-label="Open menu"
+>
+  <Icon name="menu" />
+</div>
+<div class="mobile-sidebar-backdrop" id="sidebar-backdrop"></div>
+<aside class="mobile-sidebar" id="mobile-sidebar">
+  <button class="close-btn" id="sidebar-close" aria-label="Close menu"
+    >&times;</button
+  >
+  <nav class="sidebar-nav">
+    {
+      routes.map((route: { path: string; label: string }) => (
+        <a href={route.path} class="sidebar-link">
+          {route.label}
+        </a>
+      ))
+    }
+  </nav>
+</aside>
+
+<script is:inline>
+  if (typeof window !== "undefined") {
+    const toggle = document.getElementById("sidebar-toggle");
+    const sidebar = document.getElementById("mobile-sidebar");
+    const backdrop = document.getElementById("sidebar-backdrop");
+    const closeBtn = document.getElementById("sidebar-close");
+    const links = sidebar?.querySelectorAll(".sidebar-link");
+
+    const openSidebar = () => {
+      sidebar?.classList.add("open");
+      backdrop?.classList.add("open");
+      document.body.style.overflow = "hidden";
+    };
+
+    const closeSidebar = () => {
+      sidebar?.classList.remove("open");
+      backdrop?.classList.remove("open");
+      document.body.style.overflow = "";
+    };
+
+    toggle?.addEventListener("click", openSidebar);
+    closeBtn?.addEventListener("click", closeSidebar);
+    backdrop?.addEventListener("click", closeSidebar);
+    links?.forEach((link) => link.addEventListener("click", closeSidebar));
+  }
+</script>
+
+<style>
+  .sidebar-toggle {
+    background: none;
+    border: none;
+    padding: 0.5rem;
+    cursor: pointer;
+    z-index: 1201;
+    position: fixed;
+    top: 1.2rem;
+    right: 1.2rem;
+    display: block;
+  }
+
+  .mobile-sidebar-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.18);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s;
+    z-index: 1200;
+  }
+
+  .mobile-sidebar-backdrop.open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .mobile-sidebar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 82vw;
+    max-width: 340px;
+    background: var(--color-secondary, #222);
+    color: var(--color-on-primary, #fff);
+    box-shadow: -2px 0 18px rgba(0, 0, 0, 0.18);
+    transform: translateX(100%);
+    transition: transform 0.32s cubic-bezier(0.4, 1.2, 0.4, 1);
+    z-index: 1202;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding: 2.2rem 1.5rem 1.5rem 2.5rem;
+  }
+
+  .mobile-sidebar.open {
+    transform: translateX(0);
+  }
+
+  .close-btn {
+    background: none;
+    border: none;
+    color: var(--color-on-primary, #fff);
+    font-size: 2.2rem;
+    position: absolute;
+    top: 1.2rem;
+    right: 1.2rem;
+    cursor: pointer;
+    z-index: 1;
+    padding: 0.2rem 0.7rem;
+    line-height: 1;
+  }
+
+  .sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 100%;
+    margin-top: 3.5rem;
+    align-items: flex-start;
+  }
+
+  .sidebar-link {
+    color: var(--color-on-primary, #fff);
+    text-decoration: none;
+    font-size: 1.25rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    padding: 0.2rem 0.1rem;
+    border-radius: 6px;
+    transition:
+      background 0.18s,
+      color 0.18s;
+    width: 100%;
+    display: block;
+  }
+
+  .sidebar-link:hover {
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--color-primary, #43cea2);
+  }
+
+  @media (min-width: 900px) {
+    .sidebar-toggle,
+    .mobile-sidebar,
+    .mobile-sidebar-backdrop {
+      display: none !important;
+    }
+  }
+</style>
