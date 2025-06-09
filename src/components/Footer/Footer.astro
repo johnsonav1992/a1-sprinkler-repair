@@ -1,0 +1,117 @@
+---
+import Image from "astro/components/Image.astro";
+import { MAIN_ROUTES } from "../../constants/routes-constants";
+
+const routes = MAIN_ROUTES;
+---
+
+<footer class="footer">
+  <div class="footer-content">
+    <div class="footer-row">
+      <p class="footer-text">
+        &copy; {new Date().getFullYear()} A-1 Sprinkler Repair. All rights reserved.
+      </p>
+      <Image
+        src="/src/assets/logo.png"
+        alt="A-1 Sprinkler Repair Logo"
+        class="footer-logo"
+        width={200}
+        height={54}
+      />
+      <nav class="footer-nav">
+        {
+          routes.map((route) => (
+            <a href={route.path} class="footer-link">
+              {route.label}
+            </a>
+          ))
+        }
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background: var(--color-secondary);
+    color: #fff;
+    padding: 2rem;
+    text-align: center;
+    width: 100%;
+
+    .footer-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      width: 100%;
+      margin: 0 auto;
+      width: 100%;
+
+      .footer-row {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        position: relative;
+
+        .footer-logo {
+          align-self: center;
+          height: 54px;
+          width: auto;
+          margin-bottom: 0;
+          filter: brightness(0) invert(1) grayscale(0.2) opacity(0.95);
+        }
+
+        .footer-nav {
+          display: flex;
+          gap: 2.5rem;
+        }
+
+        .footer-link {
+          color: #fff;
+          opacity: 0.7;
+          text-decoration: none;
+          font-size: 1rem;
+          transition:
+            opacity 0.2s,
+            text-decoration 0.2s;
+          &:hover {
+            opacity: 1;
+            text-decoration: underline;
+          }
+        }
+
+        .footer-text {
+          font-size: 1rem;
+          opacity: 0.85;
+          margin: 0;
+          letter-spacing: 0.02em;
+          width: auto;
+          text-align: right;
+          flex-shrink: 0;
+          align-self: center;
+        }
+      }
+    }
+
+    @media (max-width: 900px) {
+      .footer-content {
+        padding: 0 0.5rem;
+        .footer-row {
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+          padding: 0;
+          .footer-text {
+            width: 100%;
+            text-align: center;
+            margin-top: 0.5rem;
+            justify-self: center;
+          }
+        }
+      }
+    }
+  }
+</style>

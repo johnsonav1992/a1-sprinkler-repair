@@ -1,0 +1,115 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+type Props = HTMLAttributes<"button"> & {
+  size?: "small" | "medium" | "large" | "xlarge";
+  color?: "primary" | "secondary";
+  variant?: "solid" | "outline" | "text";
+};
+
+const {
+  class: className,
+  size = "medium",
+  color = "primary",
+  variant = "solid",
+  ...rest
+} = Astro.props;
+
+const classes = [className, size, color, variant].filter(Boolean).join(" ");
+---
+
+<button class={classes} {...rest}>
+  <slot />
+</button>
+
+<style>
+  button {
+    background-color: var(--color-primary);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+    width: max-content;
+
+    /* Size variants */
+    &.small {
+      padding: 0.25rem 0.75rem;
+      font-size: 0.9rem;
+    }
+    &.medium {
+      padding: 0.5rem 1.25rem;
+      font-size: 1rem;
+    }
+    &.large {
+      padding: 0.75rem 1.75rem;
+      font-size: 1.15rem;
+    }
+    &.xlarge {
+      padding: 1rem 2rem;
+      font-size: 1.25rem;
+    }
+
+    /* Color variants */
+    &.primary {
+      background-color: var(--color-primary);
+      color: #fff;
+    }
+    &.secondary {
+      background-color: var(--color-secondary);
+      color: #fff;
+    }
+
+    /* Variant styles */
+    &.solid {
+      border: none;
+    }
+    &.outline {
+      background: transparent;
+      border: 2px solid currentColor;
+      color: var(--color-primary);
+    }
+    &.secondary.outline {
+      color: var(--color-secondary);
+      border-color: var(--color-secondary);
+    }
+    &.text {
+      background: transparent;
+      border: none;
+      color: var(--color-primary);
+      box-shadow: none;
+      padding: 0.5rem 0.75rem;
+    }
+    &.secondary.text {
+      color: var(--color-secondary);
+    }
+
+    /* Hover styles */
+    &.primary:hover,
+    &.solid.primary:hover {
+      background-color: var(--color-primary-hover);
+    }
+    &.secondary:hover,
+    &.solid.secondary:hover {
+      background-color: var(--color-secondary-hover);
+    }
+    &.outline:hover {
+      background-color: rgba(0, 150, 136, 0.08);
+    }
+    &.secondary.outline:hover {
+      background-color: rgba(67, 206, 162, 0.08);
+    }
+    &.text:hover,
+    &.secondary.text:hover {
+      background-color: transparent;
+      text-decoration: underline;
+    }
+
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 0 2px var(--focus-color);
+    }
+  }
+</style>
