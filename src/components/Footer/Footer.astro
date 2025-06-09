@@ -1,7 +1,10 @@
 ---
 import Image from "astro/components/Image.astro";
 import { MAIN_ROUTES } from "../../constants/routes-constants";
-import { LICENSE_NUMBER } from "../../constants/contact-constants";
+import {
+  LICENSE_NUMBER,
+  MAIN_PHONE_NUMBER,
+} from "../../constants/contact-constants";
 
 const routes = MAIN_ROUTES;
 ---
@@ -20,6 +23,7 @@ const routes = MAIN_ROUTES;
         <p class="footer-text">
           &copy; {new Date().getFullYear()} A-1 Sprinkler Repair. All rights reserved.
         </p>
+        <p><i class="ti ti-phone"></i> {MAIN_PHONE_NUMBER}</p>
         <small>Licensed Irrigator #{LICENSE_NUMBER}</small>
       </div>
       <nav class="footer-nav">
@@ -59,6 +63,15 @@ const routes = MAIN_ROUTES;
         justify-content: space-between;
         width: 100%;
         position: relative;
+
+        .copyright-licensing {
+          display: flex;
+          flex-direction: column;
+          gap: 0.5rem;
+          font-size: 0.9rem;
+          color: #fff;
+          opacity: 0.85;
+        }
 
         .footer-logo {
           height: 54px;
