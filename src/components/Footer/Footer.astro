@@ -1,6 +1,7 @@
 ---
 import Image from "astro/components/Image.astro";
 import { MAIN_ROUTES } from "../../constants/routes-constants";
+import { LICENSE_NUMBER } from "../../constants/contact-constants";
 
 const routes = MAIN_ROUTES;
 ---
@@ -15,9 +16,12 @@ const routes = MAIN_ROUTES;
         width={200}
         height={54}
       />
-      <p class="footer-text">
-        &copy; {new Date().getFullYear()} A-1 Sprinkler Repair. All rights reserved.
-      </p>
+      <div class="copyright-licensing">
+        <p class="footer-text">
+          &copy; {new Date().getFullYear()} A-1 Sprinkler Repair. All rights reserved.
+        </p>
+        <small>Licensed Irrigator #{LICENSE_NUMBER}</small>
+      </div>
       <nav class="footer-nav">
         {
           routes.map((route) => (
