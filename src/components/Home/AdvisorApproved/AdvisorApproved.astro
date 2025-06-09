@@ -20,7 +20,6 @@ import { MAIN_PHONE_NUMBER } from "../../../constants/contact-constants";
     <Button
       color="primary"
       size="xlarge"
-      style="margin: 0 auto;"
       onclick={`window.location.href='tel:${MAIN_PHONE_NUMBER}';`}
     >
       Contact Us
@@ -35,20 +34,20 @@ import { MAIN_PHONE_NUMBER } from "../../../constants/contact-constants";
   .content-container {
     padding: 2rem;
     display: flex;
-    gap: 2rem;
+    gap: 8rem;
     background-color: var(--color-lighter-neutral);
 
     @media (max-width: 1024px) {
       flex-direction: column;
       padding: 1.5rem;
-      gap: 1.5rem;
+      gap: 2rem;
       align-items: center;
       padding-top: 1rem;
     }
 
     .text-content-container {
       flex: 1;
-      max-width: 1200px;
+      max-width: 1000px;
       display: flex;
       flex-direction: column;
       gap: 2rem;
@@ -58,6 +57,10 @@ import { MAIN_PHONE_NUMBER } from "../../../constants/contact-constants";
       @media (max-width: 1024px) {
         padding-left: 0;
         gap: 1.5rem;
+
+        button {
+          align-self: center;
+        }
       }
 
       .title {

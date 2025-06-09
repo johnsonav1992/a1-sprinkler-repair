@@ -10,13 +10,13 @@ const routes = MAIN_ROUTES;
   tabindex="0"
   aria-label="Open menu"
 >
-  <Icon name="menu" />
+  <i class="ti ti-menu-2" style="font-size: 32px;"></i>
 </div>
 <div class="mobile-sidebar-backdrop" id="sidebar-backdrop"></div>
 <aside class="mobile-sidebar" id="mobile-sidebar">
-  <button class="close-btn" id="sidebar-close" aria-label="Close menu"
-    >&times;</button
-  >
+  <button class="close-btn" id="sidebar-close" aria-label="Close menu">
+    <i class="ti ti-x"></i>
+  </button>
   <nav class="sidebar-nav">
     {
       routes.map((route: { path: string; label: string }) => (
@@ -66,6 +66,7 @@ const routes = MAIN_ROUTES;
     top: 1.2rem;
     right: 1.2rem;
     display: block;
+    color: var(--color-secondary);
   }
 
   .mobile-sidebar-backdrop {
@@ -88,8 +89,8 @@ const routes = MAIN_ROUTES;
     top: 0;
     right: 0;
     height: 100vh;
-    width: 82vw;
-    max-width: 340px;
+    width: 70vw;
+    max-width: 270px;
     background: var(--color-secondary, #222);
     color: var(--color-on-primary, #fff);
     box-shadow: -2px 0 18px rgba(0, 0, 0, 0.18);
