@@ -1,6 +1,8 @@
 ---
 import Button from "../../Button/Button.astro";
 import { MAIN_PHONE_NUMBER } from "../../../constants/contact-constants";
+import approved from "../../../assets/approved.png";
+import Image from "astro/components/Image.astro";
 ---
 
 <div class="content-container">
@@ -29,7 +31,12 @@ import { MAIN_PHONE_NUMBER } from "../../../constants/contact-constants";
     </Button>
   </div>
   <div class="approved-container">
-    <img src="./src/assets/approved.png" />
+    <Image
+      src={approved}
+      alt="Home Advisor Approved"
+      width={500}
+      height={300}
+    />
   </div>
 </div>
 

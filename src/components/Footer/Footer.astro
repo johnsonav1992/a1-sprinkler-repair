@@ -5,6 +5,7 @@ import {
   LICENSE_NUMBER,
   MAIN_PHONE_NUMBER,
 } from "../../constants/contact-constants";
+import logo from "../../assets/logo.png";
 
 const routes = MAIN_ROUTES;
 ---
@@ -13,11 +14,14 @@ const routes = MAIN_ROUTES;
   <div class="footer-content">
     <div class="footer-row">
       <Image
-        src="/src/assets/logo.png"
+        src={logo}
         alt="A-1 Sprinkler Repair Logo"
-        class="footer-logo"
         width={200}
         height={54}
+        class="footer-logo"
+        style="filter: brightness(0) invert(1) grayscale(0.2) opacity(0.95);"
+        loading="lazy"
+        decoding="async"
       />
       <div class="copyright-licensing">
         <p class="footer-text">
