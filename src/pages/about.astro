@@ -20,13 +20,13 @@ import randy from "../assets/randy_headshot.jpg";
       <div class="about-bio">
         <p>
           For over 25 years, Randy Hair and A-1 Sprinkler Repair have been
-          providing expert irrigation services to North Fort Worth residents.
-          Randy brings specialized knowledge in all areas of irrigation system
-          repair and no job is too big for him to tackle. His passion lies in
-          solving challenging irrigation problems and routine maintenance to
-          keep your lawn and garden thriving. Above all, he is dedicated to
-          giving the best possible customer experience, ensuring that every job
-          is done right and lasts.
+          providing exceptional irrigation services to homeowners and
+          businesses. Randy brings specialized knowledge in all areas of
+          irrigation system repair and no job is too big for him to tackle. His
+          passion lies in solving challenging irrigation problems and routine
+          maintenance to keep your lawn and garden thriving. Above all, he is
+          dedicated to giving the best possible customer experience, ensuring
+          that every job is done right and stands the test of time.
         </p>
       </div>
     </div>
@@ -127,6 +127,20 @@ import randy from "../assets/randy_headshot.jpg";
           p {
             text-align: center;
             max-width: 100%;
+            padding-inline: 1.25rem;
+          }
+        }
+      }
+    }
+  }
+
+  @media (min-width: 1200px) {
+    .container {
+      .about-content {
+        .about-image {
+          img {
+            width: 400px;
+            height: 480px;
           }
         }
       }
