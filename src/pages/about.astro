@@ -1,8 +1,135 @@
 ---
+import Image from "astro/components/Image.astro";
 import Layout from "../layouts/Layout.astro";
-import "../styles/global.css";
+import randy from "../assets/randy_headshot.jpg";
 ---
 
-<Layout noPadding />
+<Layout noPadding>
+  <div class="container">
+    <h1 class="about-title">About</h1>
+    <div class="about-content">
+      <div class="about-image">
+        <Image
+          src={randy}
+          width={320}
+          height={380}
+          alt="Randy Hair"
+          style="object-fit: cover;"
+        />
+      </div>
+      <div class="about-bio">
+        <p>
+          For over 25 years, Randy Hair and A-1 Sprinkler Repair have been
+          providing expert irrigation services to North Fort Worth residents.
+          Randy brings specialized knowledge in all areas of irrigation system
+          repair and no job is too big for him to tackle. His passion lies in
+          solving challenging irrigation problems and routine maintenance to
+          keep your lawn and garden thriving. Above all, he is dedicated to
+          giving the best possible customer experience, ensuring that every job
+          is done right and lasts.
+        </p>
+      </div>
+    </div>
+  </div>
+</Layout>
 
-<style></style>
+<style>
+  .container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2.5rem 1.5rem 2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    min-height: 0;
+    height: 80vh;
+    justify-content: center;
+
+    .about-title {
+      font-size: 3rem;
+      font-weight: 800;
+      margin-bottom: 2.5rem;
+      letter-spacing: 0.01em;
+      text-align: center;
+    }
+
+    .about-content {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      gap: 3rem;
+      width: 100%;
+
+      .about-image {
+        flex: 0 0 340px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img {
+          border-radius: 1.5rem;
+          box-shadow: 0 6px 24px rgba(0, 0, 0, 0.13);
+          width: 320px;
+          height: 380px;
+          object-fit: cover;
+          background: #f6f6f6;
+        }
+      }
+
+      .about-bio {
+        flex: 1 1 0%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+
+        p {
+          font-size: 1.25rem;
+          line-height: 1.7;
+          color: var(--color-text);
+          margin: 0;
+          text-align: center;
+          max-width: 540px;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 900px) {
+    .container {
+      height: auto;
+      min-height: 0;
+      padding: 2rem 0.5rem 1.5rem 0.5rem;
+
+      .about-title {
+        font-size: 2.2rem;
+        margin-bottom: 1.5rem;
+      }
+      .about-content {
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+
+        .about-image {
+          width: 100%;
+
+          img {
+            width: 220px;
+            height: 260px;
+          }
+        }
+        .about-bio {
+          width: 100%;
+          align-items: center;
+
+          p {
+            text-align: center;
+            max-width: 100%;
+          }
+        }
+      }
+    }
+  }
+</style>

@@ -24,14 +24,30 @@ const { noPadding } = Astro.props;
       href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="/src/styles/global.css" />
     <title>A-1 Sprinkler Repair</title>
   </head>
-  <body>
+  <body class="site-wrapper">
     <Header />
     <MobileSidebar />
-    <PageContainer noPadding={noPadding}>
-      <slot />
-    </PageContainer>
+    <main class="site-main">
+      <PageContainer noPadding={noPadding}>
+        <slot />
+      </PageContainer>
+    </main>
     <Footer />
   </body>
+  <style>
+    .site-wrapper {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .site-main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+  </style>
 </html>
