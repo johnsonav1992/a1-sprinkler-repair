@@ -1,8 +1,8 @@
 /* Move this file to public/styles/global.css for production builds. */
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
-@import url('/node_modules/@tabler/icons-webfont/dist/tabler-icons-filled.css');
-@import url('/node_modules/@tabler/icons-webfont/dist/tabler-icons-outline.css');
+@import url('/styles/tabler-icons-filled.min.css');
+@import url('/styles/tabler-icons-outline.min.css');
 
 * {
     margin: 0;
@@ -15,7 +15,7 @@ body {
     height: 100%;
     background-color: var(--color-light-neutral);
     font-family: 'Roboto', sans-serif;
-    scrollbar-width: none;;
+    scrollbar-width: none;
 }
 
 :root {
