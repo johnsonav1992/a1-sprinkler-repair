@@ -9,8 +9,6 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@fortawesome/free-solid-svg-icons": "^6.7.2",
-    "@tabler/icons-webfont": "^3.34.0",
     "astro": "^5.9.1"
   },
   "devDependencies": {
