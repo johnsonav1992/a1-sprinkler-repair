@@ -1,0 +1,17 @@
+/assets/*
+  Cache-Control: public, max-age=2592000, immutable
+
+/styles/*
+  Cache-Control: public, max-age=2592000, immutable
+
+/*.woff2
+  Cache-Control: public, max-age=2592000, immutable
+
+/*.woff
+  Cache-Control: public, max-age=2592000, immutable
+
+/*.ttf
+  Cache-Control: public, max-age=2592000, immutable
+
+/favicon.svg
+  Cache-Control: public, max-age=2592000, immutable
