@@ -2,6 +2,15 @@
 import Image from "astro/components/Image.astro";
 import Layout from "../layouts/Layout.astro";
 import randy from "../assets/randy_headshot.jpg";
+import { getImage } from "astro:assets";
+
+const img = await getImage({
+  src: randy,
+  width: 320,
+  height: 380,
+  format: "webp",
+  quality: 80,
+});
 ---
 
 <Layout noPadding>
@@ -10,12 +19,15 @@ import randy from "../assets/randy_headshot.jpg";
     <div class="about-content">
       <div class="about-image">
         <Image
-          src={randy}
-          width={320}
-          height={380}
+          src={img.src}
+          width={img.attributes.width}
+          height={img.attributes.height}
           alt="Randy Hair"
           style="object-fit: cover;"
         />
+        <Fragment slot="head">
+          <link rel="preload" href={img.src} as="image" />
+        </Fragment>
       </div>
       <div class="about-bio">
         <p>

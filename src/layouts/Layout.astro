@@ -3,41 +3,12 @@ import Footer from "../components/Footer/Footer.astro";
 import Header from "../components/Header/Header.astro";
 import PageContainer from "../components/PageContainer/PageContainer.astro";
 import MobileSidebar from "../components/MobileSidebar/MobileSidebar.astro";
-// Preload Astro image assets for hashed URLs
-import logo from "../assets/logo.png";
-import logo1 from "../assets/logo-1.png";
-import logo2 from "../assets/logo-2.png";
-import sprinkler1 from "../assets/sprinkler-1.png";
-import sprinkler2 from "../assets/sprinkler-2.webp";
-import sprinkler3 from "../assets/sprinkler-3.jpg";
-import approved from "../assets/approved.png";
-import brands from "../assets/brands.png";
-import randy from "../assets/randy_headshot.jpg";
-import repair1 from "../assets/sprinkler-repair-1.jpg";
-import repair2 from "../assets/sprinkler-repair-2.jpg";
-import valve from "../assets/valve.jpg";
-import wiring from "../assets/wiring.jpg";
 
 type Props = {
   noPadding?: boolean;
 };
 
 const { noPadding } = Astro.props;
-const preloadImages = [
-  logo,
-  logo1,
-  logo2,
-  sprinkler1,
-  sprinkler2,
-  sprinkler3,
-  approved,
-  brands,
-  randy,
-  repair1,
-  repair2,
-  valve,
-  wiring,
-];
 ---
 
 <!doctype html>
@@ -54,11 +25,7 @@ const preloadImages = [
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/styles/global.css" />
-    {
-      preloadImages.map((img) => (
-        <link rel="preload" as="image" href={img.src} />
-      ))
-    }
+    <slot name="head" />
     <title>A-1 Sprinkler Repair</title>
   </head>
   <body class="site-wrapper">

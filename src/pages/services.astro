@@ -5,31 +5,63 @@ import repair1 from "../assets/sprinkler-repair-1.jpg";
 import repair2 from "../assets/sprinkler-repair-2.jpg";
 import wiring from "../assets/wiring.jpg";
 import valve from "../assets/valve.jpg";
+import { getImage } from "astro:assets";
+
+const serviceImages = [
+  await getImage({
+    src: repair2,
+    width: 600,
+    height: 400,
+    format: "webp",
+    quality: 80,
+  }),
+  await getImage({
+    src: valve,
+    width: 600,
+    height: 400,
+    format: "webp",
+    quality: 80,
+  }),
+  await getImage({
+    src: repair1,
+    width: 600,
+    height: 400,
+    format: "webp",
+    quality: 80,
+  }),
+  await getImage({
+    src: wiring,
+    width: 600,
+    height: 400,
+    format: "webp",
+    quality: 80,
+  }),
+];
 
 const services = [
   {
     title: "Leak Repair",
     description:
       "We quickly locate and repair known and hidden leaks in your irrigation system, helping you conserve water and prevent costly landscape damage.",
-    imgUrl: repair2,
+    img: serviceImages[0],
   },
   {
     title: "Valve Replacement",
     description:
       "Faulty or aging valves can cause uneven watering and system failures. We expertly replace valves and solenoids to restore smooth, reliable operation.",
-    imgUrl: valve,
+    img: serviceImages[1],
   },
   {
     title: "Broken Sprinklers & Tune-Ups",
     description:
       "From damaged sprinkler heads to clogged lines, we handle all repairs and provide thorough tune-ups to keep your system performing its best.",
-    imgUrl: repair1,
+    img: serviceImages[2],
   },
   {
     title: "Wire Troubleshooting",
     description:
       "Electrical issues can be tricky. We diagnose and resolve wiring problems to ensure every zone and controller works flawlessly.",
-    imgUrl: wiring,
+    img: serviceImages[3],
   },
 ];
 ---
@@ -42,11 +74,14 @@ const services = [
           <div class={"service-row" + (idx % 2 === 1 ? " reverse" : "")}>
             <div class="service-img">
               <Image
-                src={service.imgUrl}
-                width={600}
-                height={400}
+                src={service.img.src}
+                width={service.img.attributes.width}
+                height={service.img.attributes.height}
                 alt={service.title}
               />
+              <Fragment slot="head">
+                <link rel="preload" href={service.img.src} as="image" />
+              </Fragment>
             </div>
             <div class="service-text">
               <h2>{service.title}</h2>

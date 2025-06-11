@@ -3,7 +3,20 @@ import Button from "../../Button/Button.astro";
 import { MAIN_PHONE_NUMBER } from "../../../constants/contact-constants";
 import approved from "../../../assets/approved.png";
 import Image from "astro/components/Image.astro";
+import { getImage } from "astro:assets";
+
+const img = await getImage({
+  src: approved,
+  width: 500,
+  height: 300,
+  format: "webp",
+  quality: 80,
+});
 ---
+
+<Fragment slot="head">
+  <link rel="preload" href={img.src} as="image" />
+</Fragment>
 
 <div class="content-container">
   <div class="text-content-container">
@@ -32,10 +45,10 @@ import Image from "astro/components/Image.astro";
   </div>
   <div class="approved-container">
     <Image
-      src={approved}
+      src={img.src}
       alt="Home Advisor Approved"
-      width={500}
-      height={300}
+      width={img.attributes.width}
+      height={img.attributes.height}
     />
   </div>
 </div>

@@ -1,15 +1,28 @@
 ---
 import Image from "astro/components/Image.astro";
 import brands from "../../../assets/brands.png";
+import { getImage } from "astro:assets";
+
+const img = await getImage({
+  src: brands,
+  width: 700,
+  height: 400,
+  format: "webp",
+  quality: 80,
+});
 ---
+
+<Fragment slot="head">
+  <link rel="preload" href={img.src} as="image" />
+</Fragment>
 
 <div class="content-container">
   <div class="brands-img-container">
     <Image
-      src={brands}
+      src={img.src}
       alt="A-1 Sprinkler Repair Brands Serviced"
-      width={700}
-      height={400}
+      width={img.attributes.width}
+      height={img.attributes.height}
     />
   </div>
   <div class="text-content-container">

@@ -5,6 +5,22 @@ import { MAIN_PHONE_NUMBER } from "../constants/contact-constants";
 import sprinkler1 from "../assets/sprinkler-1.png";
 import sprinkler3 from "../assets/sprinkler-3.jpg";
 import Image from "astro/components/Image.astro";
+import { getImage } from "astro:assets";
+
+const img1 = await getImage({
+  src: sprinkler1,
+  width: 420,
+  height: 288,
+  format: "webp",
+  quality: 80,
+});
+const img3 = await getImage({
+  src: sprinkler3,
+  width: 420,
+  height: 288,
+  format: "webp",
+  quality: 80,
+});
 ---
 
 <Layout noPadding>
@@ -26,19 +42,25 @@ import Image from "astro/components/Image.astro";
     </div>
     <div class="contact-images">
       <Image
-        src={sprinkler1}
+        src={img1.src}
         alt="Sprinkler repair in action"
-        width={420}
-        height={288}
+        width={img1.attributes.width}
+        height={img1.attributes.height}
         class="contact-img"
       />
+      <Fragment slot="head">
+        <link rel="preload" href={img1.src} as="image" />
+      </Fragment>
       <Image
-        src={sprinkler3}
+        src={img3.src}
         alt="Healthy green lawn"
-        width={420}
-        height={288}
+        width={img3.attributes.width}
+        height={img3.attributes.height}
         class="contact-img"
       />
+      <Fragment slot="head">
+        <link rel="preload" href={img3.src} as="image" />
+      </Fragment>
     </div>
   </div>
 </Layout>

@@ -6,23 +6,33 @@ import {
   MAIN_PHONE_NUMBER,
 } from "../../constants/contact-constants";
 import logo from "../../assets/logo.png";
+import { getImage } from "astro:assets";
 
 const routes = MAIN_ROUTES;
+
+const img = await getImage({
+  src: logo,
+  width: 200,
+  height: 54,
+  format: "webp",
+  quality: 80,
+});
 ---
 
 <footer class="footer">
   <div class="footer-content">
     <div class="footer-row">
       <Image
-        src={logo}
+        src={img.src}
         alt="A-1 Sprinkler Repair Logo"
-        width={200}
-        height={54}
+        width={img.attributes.width}
+        height={img.attributes.height}
         class="footer-logo"
         style="filter: brightness(0) invert(1) grayscale(0.2) opacity(0.95);"
-        loading="lazy"
-        decoding="async"
       />
+      <Fragment slot="head">
+        <link rel="preload" href={img.src} as="image" />
+      </Fragment>
       <div class="copyright-licensing">
         <p class="footer-text">
           &copy; {new Date().getFullYear()} A-1 Sprinkler Repair. All rights reserved.
