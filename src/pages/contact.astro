@@ -66,6 +66,7 @@ import Image from "astro/components/Image.astro";
       max-width: 480px;
       min-width: 280px;
       justify-content: center;
+
       h1 {
         font-size: 2.3rem;
         font-weight: 800;
@@ -73,12 +74,14 @@ import Image from "astro/components/Image.astro";
         color: var(--color-primary);
         line-height: 1.1;
       }
+
       p {
         font-size: 1.15rem;
         color: var(--color-secondary);
         margin-bottom: 0.7rem;
         line-height: 1.6;
       }
+
       button {
         margin-top: 0.7rem;
       }
@@ -95,6 +98,7 @@ import Image from "astro/components/Image.astro";
       max-width: 440px;
       width: 100%;
     }
+
     .contact-img {
       width: 100%;
       max-width: 420px;
@@ -106,6 +110,7 @@ import Image from "astro/components/Image.astro";
       transition: transform 0.2s;
       display: block;
     }
+
     .contact-img:hover {
       transform: scale(1.025);
     }
@@ -116,18 +121,22 @@ import Image from "astro/components/Image.astro";
       flex-direction: column;
       gap: 3vw;
       padding: 4vw 1vw 3vw 1vw;
+
       .contact-content {
         align-items: center;
         text-align: center;
         max-width: 100%;
         min-width: 0;
+
         h1 {
           font-size: 2rem;
         }
+
         p {
           font-size: 1.1rem;
         }
       }
+
       .contact-images {
         flex-direction: row;
         gap: 2rem;
@@ -135,6 +144,7 @@ import Image from "astro/components/Image.astro";
         min-width: 0;
       }
     }
+
     .contact-img {
       max-width: 180px;
       border-radius: 0.8rem;
@@ -146,27 +156,33 @@ import Image from "astro/components/Image.astro";
       flex-direction: column;
       gap: 2vw;
       padding: 3vw 0.5vw 2vw 0.5vw;
+
       .contact-content {
         h1 {
           font-size: 1.4rem;
         }
+
         p {
           font-size: 1.02rem;
         }
+
         button {
           margin-bottom: 2.2rem;
         }
       }
+
       .contact-content {
         padding: 0 1.2rem;
         margin-top: 2.2rem;
       }
+
       .contact-images {
         flex-direction: column;
         gap: 1.5rem;
         margin-bottom: 2.5rem;
       }
     }
+
     .contact-img {
       max-width: 98vw;
       border-radius: 0.5rem;
@@ -178,35 +194,41 @@ import Image from "astro/components/Image.astro";
       min-height: unset;
       padding: 2vw 0.2vw 2vw 0.2vw;
       gap: 1.2vw;
+
       .contact-content {
         h1 {
           font-size: 1.6rem;
         }
+
         p {
           font-size: 0.98rem;
         }
+
         button {
           margin-bottom: 1.7rem;
         }
+
         padding: 0 0.8rem;
         margin-top: 1.5rem;
       }
+
       .contact-images {
         flex-direction: column;
         gap: 1.2rem;
         margin-bottom: 2.2rem;
       }
     }
+
     .contact-img {
       max-width: 98vw;
       border-radius: 0.5rem;
     }
   }
 
-  /* Make base font sizes larger for better readability */
   .contact-content h1 {
     font-size: clamp(1.7rem, 6vw, 2.3rem);
   }
+
   .contact-content p {
     font-size: clamp(1.05rem, 2.5vw, 1.18rem);
   }
@@ -214,6 +236,7 @@ import Image from "astro/components/Image.astro";
   .contact-break {
     display: none;
   }
+
   @media (max-width: 1300px) {
     .contact-break {
       display: inline;
