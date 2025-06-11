@@ -3,6 +3,7 @@ import Footer from "../components/Footer/Footer.astro";
 import Header from "../components/Header/Header.astro";
 import PageContainer from "../components/PageContainer/PageContainer.astro";
 import MobileSidebar from "../components/MobileSidebar/MobileSidebar.astro";
+import { ClientRouter } from "astro:transitions";
 
 type Props = {
   noPadding?: boolean;
@@ -26,6 +27,7 @@ const { noPadding } = Astro.props;
     />
     <link rel="stylesheet" href="/styles/global.css" />
     <slot name="head" />
+    <ClientRouter />
     <title>A-1 Sprinkler Repair</title>
   </head>
   <body class="site-wrapper">
@@ -37,8 +39,7 @@ const { noPadding } = Astro.props;
       </PageContainer>
     </main>
     <Footer />
-  </body>
-  <style>
+  </body><style>
     .site-wrapper {
       min-height: 100vh;
       display: flex;
