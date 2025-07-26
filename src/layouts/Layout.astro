@@ -3,22 +3,58 @@ import Footer from "../components/Footer/Footer.astro";
 import Header from "../components/Header/Header.astro";
 import PageContainer from "../components/PageContainer/PageContainer.astro";
 import MobileSidebar from "../components/MobileSidebar/MobileSidebar.astro";
+import LogRocketScript from "../components/LogRocket.astro";
 // import { ClientRouter } from "astro:transitions";
 
 type Props = {
   noPadding?: boolean;
+  title?: string;
+  description?: string;
+  keywords?: string;
+  ogImage?: string;
 };
 
-const { noPadding } = Astro.props;
+const { noPadding, title, description, keywords, ogImage } = Astro.props;
+
+const pageTitle = title
+  ? `${title} | A-1 Sprinkler Repair`
+  : "A-1 Sprinkler Repair - Professional Irrigation & Sprinkler System Repair";
+const pageDescription =
+  description ||
+  "Expert sprinkler and irrigation system repair services. Over 25 years of experience in leak repair, valve replacement, and system maintenance.";
+const pageKeywords =
+  keywords ||
+  "sprinkler repair, irrigation repair, valve replacement, leak repair, lawn sprinkler, irrigation system";
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/png" href="/favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon.png" />
     <meta name="generator" content={Astro.generator} />
+
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    <meta name="keywords" content={pageKeywords} />
+    <link rel="canonical" href={canonicalURL} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={Astro.url} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    {ogImage && <meta property="og:image" content={ogImage} />}
+
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={Astro.url} />
+    <meta property="twitter:title" content={pageTitle} />
+    <meta property="twitter:description" content={pageDescription} />
+    {ogImage && <meta property="twitter:image" content={ogImage} />}
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -26,9 +62,59 @@ const { noPadding } = Astro.props;
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/styles/global.css" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "A-1 Sprinkler Repair",
+        "description": "Professional irrigation and sprinkler system repair services",
+        "serviceArea": {
+          "@type": "GeoCircle",
+          "geoMidpoint": {
+            "@type": "GeoCoordinates",
+            "latitude": 32.7555,
+            "longitude": -97.3308
+          },
+          "geoRadius": 96560
+        },
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Sprinkler Services",
+          "itemListElement": [
+            {
+              "@type": "OfferCatalog",
+              "name": "Leak Repair",
+              "description": "Quick location and repair of irrigation system leaks"
+            },
+            {
+              "@type": "OfferCatalog",
+              "name": "Valve Replacement",
+              "description": "Expert valve and solenoid replacement services"
+            },
+            {
+              "@type": "OfferCatalog",
+              "name": "Sprinkler Tune-Ups",
+              "description": "Comprehensive sprinkler system maintenance and repairs"
+            },
+            {
+              "@type": "OfferCatalog",
+              "name": "Wire Troubleshooting",
+              "description": "Electrical system diagnosis and repair"
+            }
+          ]
+        },
+        "founder": {
+          "@type": "Person",
+          "name": "Randy Hair"
+        },
+        "foundingDate": "1999",
+        "url": "https://a1sprinklerrepair.com"
+      }
+    </script>
+
     <slot name="head" />
-    <!-- <ClientRouter /> -->
-    <title>A-1 Sprinkler Repair</title>
+    <LogRocketScript />
   </head>
   <body class="site-wrapper">
     <Header />

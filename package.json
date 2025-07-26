@@ -9,7 +9,8 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^5.9.1"
+    "astro": "^5.9.1",
+    "logrocket": "^10.1.0"
   },
   "devDependencies": {
     "prettier": "^3.5.3",
