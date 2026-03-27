@@ -1,72 +1,72 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import { getImage } from "astro:assets";
 import Image from "astro/components/Image.astro";
 import repair1 from "../assets/sprinkler-repair-1.jpg";
 import repair2 from "../assets/sprinkler-repair-2.jpg";
-import wiring from "../assets/wiring.jpg";
 import valve from "../assets/valve.jpg";
-import { getImage } from "astro:assets";
+import wiring from "../assets/wiring.jpg";
+import Layout from "../layouts/Layout.astro";
 
 const serviceImages = [
-  await getImage({
-    src: repair2,
-    width: 800,
-    height: 600,
-    format: "webp",
-    quality: 85,
-  }),
-  await getImage({
-    src: valve,
-    width: 800,
-    height: 600,
-    format: "webp",
-    quality: 85,
-  }),
-  await getImage({
-    src: repair1,
-    width: 800,
-    height: 600,
-    format: "webp",
-    quality: 85,
-  }),
-  await getImage({
-    src: wiring,
-    width: 800,
-    height: 600,
-    format: "webp",
-    quality: 85,
-  }),
+	await getImage({
+		src: repair2,
+		width: 800,
+		height: 600,
+		format: "webp",
+		quality: 85,
+	}),
+	await getImage({
+		src: valve,
+		width: 800,
+		height: 600,
+		format: "webp",
+		quality: 85,
+	}),
+	await getImage({
+		src: repair1,
+		width: 800,
+		height: 600,
+		format: "webp",
+		quality: 85,
+	}),
+	await getImage({
+		src: wiring,
+		width: 800,
+		height: 600,
+		format: "webp",
+		quality: 85,
+	}),
 ];
 
 const services = [
-  {
-    title: "Leak Repair",
-    icon: "ti-droplet",
-    description:
-      "We quickly locate and repair known and hidden leaks in your irrigation system, helping you conserve water and prevent costly landscape damage.",
-    img: serviceImages[0],
-  },
-  {
-    title: "Valve Replacement",
-    icon: "ti-settings",
-    description:
-      "Faulty or aging valves can cause uneven watering and system failures. We expertly replace valves and solenoids to restore smooth, reliable operation.",
-    img: serviceImages[1],
-  },
-  {
-    title: "Broken Sprinklers & Tune-Ups",
-    icon: "ti-tool",
-    description:
-      "From damaged sprinkler heads to clogged lines, we handle all repairs and provide thorough tune-ups to keep your system performing its best.",
-    img: serviceImages[2],
-  },
-  {
-    title: "Wire Troubleshooting",
-    icon: "ti-bolt",
-    description:
-      "Electrical issues can be tricky. We diagnose and resolve wiring problems to ensure every zone and controller works flawlessly.",
-    img: serviceImages[3],
-  },
+	{
+		title: "Leak Repair",
+		icon: "ti-droplet",
+		description:
+			"We quickly locate and repair known and hidden leaks in your irrigation system, helping you conserve water and prevent costly landscape damage.",
+		img: serviceImages[0],
+	},
+	{
+		title: "Valve Replacement",
+		icon: "ti-settings",
+		description:
+			"Faulty or aging valves can cause uneven watering and system failures. We expertly replace valves and solenoids to restore smooth, reliable operation.",
+		img: serviceImages[1],
+	},
+	{
+		title: "Broken Sprinklers & Tune-Ups",
+		icon: "ti-tool",
+		description:
+			"From damaged sprinkler heads to clogged lines, we handle all repairs and provide thorough tune-ups to keep your system performing its best.",
+		img: serviceImages[2],
+	},
+	{
+		title: "Wire Troubleshooting",
+		icon: "ti-bolt",
+		description:
+			"Electrical issues can be tricky. We diagnose and resolve wiring problems to ensure every zone and controller works flawlessly.",
+		img: serviceImages[3],
+	},
 ];
 ---
 

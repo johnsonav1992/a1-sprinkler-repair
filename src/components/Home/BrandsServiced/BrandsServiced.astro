@@ -1,7 +1,7 @@
 ---
+import { getImage } from "astro:assets";
 import Image from "astro/components/Image.astro";
 import brands from "../../../assets/brands.png";
-import { getImage } from "astro:assets";
 
 const img = await getImage({
 	src: brands,

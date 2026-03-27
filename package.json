@@ -7,7 +7,7 @@
 		"build": "astro build",
 		"preview": "astro preview",
 		"astro": "astro",
-		"format": "biome format --write . && prettier --write \"**/*.astro\"",
+		"format": "biome check --write .",
 		"check": "biome check .",
 		"lint": "biome lint ."
 	},
@@ -22,8 +22,6 @@
 	},
 	"devDependencies": {
 		"@biomejs/biome": "^2.4.9",
-		"prettier": "^3.8.1",
-		"prettier-plugin-astro": "^0.14.1",
 		"typescript": "^5.9.3"
 	}
 }

@@ -1,22 +1,22 @@
 ---
-import Button from "../../Button/Button.astro";
-import { MAIN_PHONE_NUMBER } from "../../../constants/contact-constants";
-import approved from "../../../assets/approved.png";
-import Image from "astro/components/Image.astro";
 import { getImage } from "astro:assets";
+import Image from "astro/components/Image.astro";
+import approved from "../../../assets/approved.png";
+import { MAIN_PHONE_NUMBER } from "../../../constants/contact-constants";
+import Button from "../../Button/Button.astro";
 
 const img = await getImage({
-  src: approved,
-  width: 400,
-  height: 400,
-  format: "webp",
-  quality: 80,
+	src: approved,
+	width: 400,
+	height: 400,
+	format: "webp",
+	quality: 80,
 });
 
 const features = [
-  { icon: "ti-license", text: "Licensed irrigator" },
-  { icon: "ti-shield-check", text: "Honest pricing, no surprises" },
-  { icon: "ti-calendar-check", text: "Flexible scheduling, prompt service" },
+	{ icon: "ti-license", text: "Licensed irrigator" },
+	{ icon: "ti-shield-check", text: "Honest pricing, no surprises" },
+	{ icon: "ti-calendar-check", text: "Flexible scheduling, prompt service" },
 ];
 ---
 

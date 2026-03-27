@@ -17,15 +17,16 @@ export default function MobileSidebar() {
 
 	return (
 		<>
-			<div
+			<button
+				type="button"
 				className={styles.sidebarToggle}
 				onClick={open}
-				onKeyDown={(e) => e.key === "Enter" && open()}
-				tabIndex={0}
 				aria-label="Open menu"
 			>
 				<i className="ti ti-menu-2" style={{ fontSize: 32 }}></i>
-			</div>
+			</button>
+			{/* biome-ignore lint/a11y/noStaticElementInteractions: backdrop overlay, closed via button/escape */}
+			{/* biome-ignore lint/a11y/useKeyWithClickEvents: backdrop overlay, keyboard close handled by escape key on sidebar */}
 			<div
 				className={`${styles.backdrop} ${isOpen ? styles.backdropOpen : ""}`}
 				onClick={close}
@@ -34,6 +35,7 @@ export default function MobileSidebar() {
 				className={`${styles.sidebar} ${isOpen ? styles.sidebarOpen : ""}`}
 			>
 				<button
+					type="button"
 					className={styles.closeBtn}
 					onClick={close}
 					aria-label="Close menu"

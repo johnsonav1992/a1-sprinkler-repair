@@ -96,6 +96,7 @@
 	.sidebarToggle,
 	.sidebar,
 	.backdrop {
+		/* biome-ignore lint/complexity/noImportantStyles: needed to override open-state transforms on desktop */
 		display: none !important;
 	}
 }

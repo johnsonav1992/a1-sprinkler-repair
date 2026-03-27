@@ -1,8 +1,8 @@
 ---
+import { getImage } from "astro:assets";
 import Image from "astro/components/Image.astro";
 import logoImage from "../../assets/logo-1.png";
 import { MAIN_ROUTES } from "../../constants/routes-constants";
-import { getImage } from "astro:assets";
 
 const routes = MAIN_ROUTES;
 const img = await getImage({
