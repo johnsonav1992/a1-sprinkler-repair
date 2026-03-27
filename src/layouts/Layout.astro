@@ -2,7 +2,7 @@
 import Footer from "../components/Footer/Footer.astro";
 import Header from "../components/Header/Header.astro";
 import PageContainer from "../components/PageContainer/PageContainer.astro";
-import MobileSidebar from "../components/MobileSidebar/MobileSidebar.astro";
+import MobileSidebar from "../components/MobileSidebar/MobileSidebar";
 import LogRocketScript from "../components/LogRocket.astro";
 // import { ClientRouter } from "astro:transitions";
 
@@ -118,7 +118,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   </head>
   <body class="site-wrapper">
     <Header />
-    <MobileSidebar />
+    <MobileSidebar client:load />
     <main class="site-main">
       <PageContainer noPadding={noPadding}>
         <slot />
