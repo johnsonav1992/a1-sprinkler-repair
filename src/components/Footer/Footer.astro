@@ -2,8 +2,8 @@
 import Image from "astro/components/Image.astro";
 import { MAIN_ROUTES } from "../../constants/routes-constants";
 import {
-  LICENSE_NUMBER,
-  MAIN_PHONE_NUMBER,
+	LICENSE_NUMBER,
+	MAIN_PHONE_NUMBER,
 } from "../../constants/contact-constants";
 import logo from "../../assets/logo.png";
 import { getImage } from "astro:assets";
@@ -11,11 +11,11 @@ import { getImage } from "astro:assets";
 const routes = MAIN_ROUTES;
 
 const img = await getImage({
-  src: logo,
-  width: 200,
-  height: 54,
-  format: "webp",
-  quality: 80,
+	src: logo,
+	width: 200,
+	height: 54,
+	format: "webp",
+	quality: 80,
 });
 ---
 

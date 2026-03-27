@@ -7,24 +7,24 @@ import LogRocketScript from "../components/LogRocket.astro";
 // import { ClientRouter } from "astro:transitions";
 
 type Props = {
-  noPadding?: boolean;
-  title?: string;
-  description?: string;
-  keywords?: string;
-  ogImage?: string;
+	noPadding?: boolean;
+	title?: string;
+	description?: string;
+	keywords?: string;
+	ogImage?: string;
 };
 
 const { noPadding, title, description, keywords, ogImage } = Astro.props;
 
 const pageTitle = title
-  ? `${title} | A-1 Sprinkler Repair`
-  : "A-1 Sprinkler Repair - Professional Irrigation & Sprinkler System Repair";
+	? `${title} | A-1 Sprinkler Repair`
+	: "A-1 Sprinkler Repair - Professional Irrigation & Sprinkler System Repair";
 const pageDescription =
-  description ||
-  "Expert sprinkler and irrigation system repair services. Over 25 years of experience in leak repair, valve replacement, and system maintenance.";
+	description ||
+	"Expert sprinkler and irrigation system repair services. Over 25 years of experience in leak repair, valve replacement, and system maintenance.";
 const pageKeywords =
-  keywords ||
-  "sprinkler repair, irrigation repair, valve replacement, leak repair, lawn sprinkler, irrigation system";
+	keywords ||
+	"sprinkler repair, irrigation repair, valve replacement, leak repair, lawn sprinkler, irrigation system";
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 

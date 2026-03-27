@@ -6,126 +6,166 @@ import Image from "astro/components/Image.astro";
 import { getImage } from "astro:assets";
 
 const img = await getImage({
-  src: approved,
-  width: 500,
-  height: 300,
-  format: "webp",
-  quality: 80,
+	src: approved,
+	width: 400,
+	height: 400,
+	format: "webp",
+	quality: 80,
 });
+
+const features = [
+	{ icon: "ti-clock", text: "Over 25 years of hands-on irrigation experience" },
+	{ icon: "ti-license", text: "Licensed irrigator — #13364" },
+	{ icon: "ti-shield-check", text: "Honest pricing, no surprises" },
+	{ icon: "ti-map-pin", text: "Proudly serving North Fort Worth & DFW" },
+];
 ---
 
 <Fragment slot="head">
-  <link rel="preload" href={img.src} as="image" />
+	<link rel="preload" href={img.src} as="image" />
 </Fragment>
 
-<div class="content-container">
-  <div class="text-content-container">
-    <h1 class="title">
-      We have a solution for all your sprinkler repair needs
-    </h1>
-    <p class="text">
-      Serving the North Fort Worth area, A-1 Sprinkler Repair brings over 25
-      years of hands-on experience in residential irrigation. We specialize in
-      leaks, valve replacement, broken sprinklers, tune-ups, and wire
-      troubleshooting. As licensed irrigators, we’re committed to quality work,
-      honest service, and getting the job done right the first time. We enjoy
-      solving tough problems and keeping your lawn looking its best.
-    </p>
-    <p class="text">
-      Contact us today to schedule an appointment and let us help you maintain a
-      beautiful lawn and landscape!
-    </p>
-    <Button
-      color="primary"
-      size="xlarge"
-      onclick={`window.location.href='tel:${MAIN_PHONE_NUMBER}';`}
-    >
-      Contact Us
-    </Button>
-  </div>
-  <div class="approved-container">
-    <Image
-      src={img.src}
-      alt="Home Advisor Approved"
-      width={img.attributes.width}
-      height={img.attributes.height}
-    />
-  </div>
-</div>
+<section class="advisor-section">
+	<div class="advisor-inner">
+		<div class="advisor-text">
+			<p class="eyebrow">Why Choose Us</p>
+			<h2 class="title">
+				Your yard deserves<br />an expert, not a guess
+			</h2>
+			<ul class="features">
+				{
+					features.map((f) => (
+						<li class="feature">
+							<span class="feature-icon">
+								<i class={`ti ${f.icon}`} />
+							</span>
+							<span>{f.text}</span>
+						</li>
+					))
+				}
+			</ul>
+			<Button
+				color="primary"
+				size="xlarge"
+				onclick={`window.location.href='tel:${MAIN_PHONE_NUMBER}';`}
+			>
+				Call {MAIN_PHONE_NUMBER}
+			</Button>
+		</div>
+		<div class="advisor-badge">
+			<Image
+				src={img.src}
+				alt="Home Advisor Screened & Approved"
+				width={img.attributes.width}
+				height={img.attributes.height}
+			/>
+			<p class="badge-caption">Screened &amp; Approved</p>
+		</div>
+	</div>
+</section>
 
 <style>
-  .content-container {
-    padding: 2rem;
-    display: flex;
-    justify-content: space-evenly;
-    gap: 8rem;
-    background-color: var(--color-lighter-neutral);
+	.advisor-section {
+		background: var(--color-secondary);
+		color: #fff;
+		width: 100%;
+		padding: 6rem 4rem;
 
-    @media (max-width: 1024px) {
-      flex-direction: column;
-      padding: 1.5rem;
-      gap: 2rem;
-      align-items: center;
-      padding-top: 1rem;
-    }
+		@media (max-width: 768px) {
+			padding: 4rem 1.5rem;
+		}
+	}
 
-    .text-content-container {
-      flex: 1;
-      max-width: 1000px;
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-      padding-left: 1rem;
-      justify-content: center;
+	.advisor-inner {
+		max-width: 1100px;
+		margin: 0 auto;
+		display: flex;
+		align-items: center;
+		gap: 5rem;
 
-      @media (max-width: 1024px) {
-        padding-left: 0;
-        gap: 1.5rem;
+		@media (max-width: 900px) {
+			flex-direction: column;
+			gap: 3rem;
+			align-items: flex-start;
+		}
+	}
 
-        button {
-          align-self: center;
-        }
-      }
+	.advisor-text {
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
 
-      .title {
-        font-size: 2.5rem;
+		.eyebrow {
+			font-size: 0.8rem;
+			font-weight: 700;
+			letter-spacing: 0.15em;
+			text-transform: uppercase;
+			color: var(--color-primary);
+		}
 
-        @media (max-width: 768px) {
-          font-size: 2rem;
-        }
-      }
+		.title {
+			font-size: clamp(2rem, 4vw, 2.75rem);
+			font-weight: 800;
+			line-height: 1.15;
+		}
+	}
 
-      .text {
-        font-size: 1.2rem;
-        line-height: 1.5;
+	.features {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+	}
 
-        @media (max-width: 768px) {
-          font-size: 1.1rem;
-        }
-      }
-    }
+	.feature {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+		font-size: 1.05rem;
+		opacity: 0.9;
 
-    .approved-container {
-      width: 40%;
-      max-width: 500px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+		.feature-icon {
+			width: 2.25rem;
+			height: 2.25rem;
+			background: rgba(152, 164, 90, 0.18);
+			border-radius: 50%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			flex-shrink: 0;
 
-      @media (max-width: 1024px) {
-        width: 100%;
-      }
+			i {
+				font-size: 1.1rem;
+				color: var(--color-primary);
+			}
+		}
+	}
 
-      img {
-        width: 100%;
-        height: auto;
-        object-fit: contain;
+	.advisor-badge {
+		flex-shrink: 0;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 1rem;
 
-        @media (max-width: 768px) {
-          max-width: 350px;
-          min-width: 250px;
-        }
-      }
-    }
-  }
+		img {
+			width: 220px;
+			height: auto;
+			filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.4));
+		}
+
+		.badge-caption {
+			font-size: 0.85rem;
+			opacity: 0.55;
+			letter-spacing: 0.05em;
+			text-transform: uppercase;
+		}
+
+		@media (max-width: 900px) {
+			align-self: center;
+		}
+	}
 </style>

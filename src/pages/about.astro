@@ -5,11 +5,11 @@ import randy from "../assets/randy_headshot.jpg";
 import { getImage } from "astro:assets";
 
 const img = await getImage({
-  src: randy,
-  width: 320,
-  height: 380,
-  format: "webp",
-  quality: 80,
+	src: randy,
+	width: 320,
+	height: 380,
+	format: "webp",
+	quality: 80,
 });
 ---
 
@@ -33,6 +33,7 @@ const img = await getImage({
         <Fragment slot="head">
           <link rel="preload" href={img.src} as="image" />
         </Fragment>
+        <p class="photo-caption">Randy Hair — Owner & Licensed Irrigator</p>
       </div>
       <div class="about-bio">
         <p>
@@ -82,8 +83,10 @@ const img = await getImage({
       .about-image {
         flex: 0 0 340px;
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
+        gap: 0.75rem;
 
         img {
           border-radius: 1.5rem;
@@ -92,6 +95,14 @@ const img = await getImage({
           height: 380px;
           object-fit: cover;
           background: #f6f6f6;
+        }
+
+        .photo-caption {
+          font-size: 0.9rem;
+          color: var(--color-secondary);
+          opacity: 0.7;
+          text-align: center;
+          font-style: italic;
         }
       }
 
@@ -107,7 +118,7 @@ const img = await getImage({
           line-height: 1.7;
           color: var(--color-text);
           margin: 0;
-          text-align: center;
+          text-align: left;
           max-width: 540px;
         }
       }
@@ -143,7 +154,7 @@ const img = await getImage({
           align-items: center;
 
           p {
-            text-align: center;
+            text-align: left;
             max-width: 100%;
             padding-inline: 1.25rem;
           }

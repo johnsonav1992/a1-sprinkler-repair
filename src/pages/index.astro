@@ -13,6 +13,27 @@ import BrandsServiced from "../components/Home/BrandsServiced/BrandsServiced.ast
 >
   <main class="main-content">
     <SplashImg />
+    <div class="trust-bar">
+      <div class="trust-item">
+        <i class="ti ti-calendar-check"></i>
+        <span>25+ Years Experience</span>
+      </div>
+      <div class="trust-divider"></div>
+      <div class="trust-item">
+        <i class="ti ti-license"></i>
+        <span>Licensed Irrigator</span>
+      </div>
+      <div class="trust-divider"></div>
+      <div class="trust-item">
+        <i class="ti ti-map-pin"></i>
+        <span>Serving DFW</span>
+      </div>
+      <div class="trust-divider"></div>
+      <div class="trust-item">
+        <i class="ti ti-tools"></i>
+        <span>All Brands Serviced</span>
+      </div>
+    </div>
     <AdvisorApproved />
     <BrandsServiced />
   </main>
@@ -27,5 +48,42 @@ import BrandsServiced from "../components/Home/BrandsServiced/BrandsServiced.ast
     margin: 0;
     display: flex;
     flex-direction: column;
+  }
+
+  .trust-bar {
+    background: var(--color-lighter-neutral);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+    color: var(--color-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+    padding: 1rem 2rem;
+  }
+
+  .trust-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    padding: 0.25rem 1.25rem;
+    white-space: nowrap;
+
+    i {
+      font-size: 1.1rem;
+      color: var(--color-primary);
+    }
+  }
+
+  .trust-divider {
+    width: 1px;
+    height: 1.1rem;
+    background: rgba(0, 0, 0, 0.18);
+
+    @media (max-width: 600px) {
+      display: none;
+    }
   }
 </style>

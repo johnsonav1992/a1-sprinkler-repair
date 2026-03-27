@@ -2,17 +2,17 @@
 import type { HTMLAttributes } from "astro/types";
 
 type Props = HTMLAttributes<"button"> & {
-  size?: "small" | "medium" | "large" | "xlarge";
-  color?: "primary" | "secondary";
-  variant?: "solid" | "outline" | "text";
+	size?: "small" | "medium" | "large" | "xlarge";
+	color?: "primary" | "secondary";
+	variant?: "solid" | "outline" | "text";
 };
 
 const {
-  class: className,
-  size = "medium",
-  color = "primary",
-  variant = "solid",
-  ...rest
+	class: className,
+	size = "medium",
+	color = "primary",
+	variant = "solid",
+	...rest
 } = Astro.props;
 
 const classes = [className, size, color, variant].filter(Boolean).join(" ");
@@ -28,10 +28,15 @@ const classes = [className, size, color, variant].filter(Boolean).join(" ");
     color: white;
     border: none;
     padding: 0.5rem 1rem;
-    border-radius: 0.25rem;
+    border-radius: 0.5rem;
     cursor: pointer;
     font-size: 1rem;
-    transition: background-color 0.3s ease;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    transition:
+      background-color 0.2s ease,
+      transform 0.2s ease,
+      box-shadow 0.2s ease;
     width: max-content;
 
     /* Size variants */
@@ -56,10 +61,12 @@ const classes = [className, size, color, variant].filter(Boolean).join(" ");
     &.primary {
       background-color: var(--color-primary);
       color: #fff;
+      box-shadow: 0 2px 10px rgba(152, 164, 90, 0.35);
     }
     &.secondary {
       background-color: var(--color-secondary);
       color: #fff;
+      box-shadow: 0 2px 10px rgba(33, 37, 64, 0.3);
     }
 
     /* Variant styles */
@@ -90,10 +97,14 @@ const classes = [className, size, color, variant].filter(Boolean).join(" ");
     &.primary:hover,
     &.solid.primary:hover {
       background-color: var(--color-primary-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(152, 164, 90, 0.45);
     }
     &.secondary:hover,
     &.solid.secondary:hover {
       background-color: var(--color-secondary-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(33, 37, 64, 0.4);
     }
     &.outline:hover {
       background-color: rgba(0, 150, 136, 0.08);

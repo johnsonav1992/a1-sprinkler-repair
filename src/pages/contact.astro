@@ -8,18 +8,18 @@ import Image from "astro/components/Image.astro";
 import { getImage } from "astro:assets";
 
 const img1 = await getImage({
-  src: sprinkler1,
-  width: 420,
-  height: 288,
-  format: "webp",
-  quality: 80,
+	src: sprinkler1,
+	width: 420,
+	height: 288,
+	format: "webp",
+	quality: 80,
 });
 const img3 = await getImage({
-  src: sprinkler3,
-  width: 420,
-  height: 288,
-  format: "webp",
-  quality: 80,
+	src: sprinkler3,
+	width: 420,
+	height: 288,
+	format: "webp",
+	quality: 80,
 });
 ---
 
@@ -117,19 +117,19 @@ const img3 = await getImage({
     .contact-images {
       flex: 1 1 0%;
       display: flex;
-      flex-direction: column;
-      gap: 2.5rem;
+      flex-direction: row;
+      gap: 1.25rem;
       align-items: center;
       justify-content: center;
       min-width: 220px;
-      max-width: 440px;
+      max-width: 560px;
       width: 100%;
     }
 
     .contact-img {
       width: 100%;
-      max-width: 420px;
-      height: auto;
+      flex: 1 1 0%;
+      height: 320px;
       border-radius: 1.2rem;
       box-shadow: 0 6px 24px rgba(0, 0, 0, 0.11);
       object-fit: cover;
@@ -147,7 +147,7 @@ const img3 = await getImage({
     .contact-container {
       flex-direction: column;
       gap: 3vw;
-      padding: 4vw 1vw 3vw 1vw;
+      padding: 4vw 2vw 3vw 2vw;
 
       .contact-content {
         align-items: center;
@@ -166,14 +166,14 @@ const img3 = await getImage({
 
       .contact-images {
         flex-direction: row;
-        gap: 2rem;
+        gap: 1.25rem;
         max-width: 100%;
         min-width: 0;
       }
     }
 
     .contact-img {
-      max-width: 180px;
+      height: 220px;
       border-radius: 0.8rem;
     }
   }
