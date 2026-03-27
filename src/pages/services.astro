@@ -8,192 +8,216 @@ import valve from "../assets/valve.jpg";
 import { getImage } from "astro:assets";
 
 const serviceImages = [
-	await getImage({ src: repair2, width: 800, height: 600, format: "webp", quality: 85 }),
-	await getImage({ src: valve, width: 800, height: 600, format: "webp", quality: 85 }),
-	await getImage({ src: repair1, width: 800, height: 600, format: "webp", quality: 85 }),
-	await getImage({ src: wiring, width: 800, height: 600, format: "webp", quality: 85 }),
+  await getImage({
+    src: repair2,
+    width: 800,
+    height: 600,
+    format: "webp",
+    quality: 85,
+  }),
+  await getImage({
+    src: valve,
+    width: 800,
+    height: 600,
+    format: "webp",
+    quality: 85,
+  }),
+  await getImage({
+    src: repair1,
+    width: 800,
+    height: 600,
+    format: "webp",
+    quality: 85,
+  }),
+  await getImage({
+    src: wiring,
+    width: 800,
+    height: 600,
+    format: "webp",
+    quality: 85,
+  }),
 ];
 
 const services = [
-	{
-		title: "Leak Repair",
-		icon: "ti-droplet",
-		description:
-			"We quickly locate and repair known and hidden leaks in your irrigation system, helping you conserve water and prevent costly landscape damage.",
-		img: serviceImages[0],
-	},
-	{
-		title: "Valve Replacement",
-		icon: "ti-settings",
-		description:
-			"Faulty or aging valves can cause uneven watering and system failures. We expertly replace valves and solenoids to restore smooth, reliable operation.",
-		img: serviceImages[1],
-	},
-	{
-		title: "Broken Sprinklers & Tune-Ups",
-		icon: "ti-tool",
-		description:
-			"From damaged sprinkler heads to clogged lines, we handle all repairs and provide thorough tune-ups to keep your system performing its best.",
-		img: serviceImages[2],
-	},
-	{
-		title: "Wire Troubleshooting",
-		icon: "ti-bolt",
-		description:
-			"Electrical issues can be tricky. We diagnose and resolve wiring problems to ensure every zone and controller works flawlessly.",
-		img: serviceImages[3],
-	},
+  {
+    title: "Leak Repair",
+    icon: "ti-droplet",
+    description:
+      "We quickly locate and repair known and hidden leaks in your irrigation system, helping you conserve water and prevent costly landscape damage.",
+    img: serviceImages[0],
+  },
+  {
+    title: "Valve Replacement",
+    icon: "ti-settings",
+    description:
+      "Faulty or aging valves can cause uneven watering and system failures. We expertly replace valves and solenoids to restore smooth, reliable operation.",
+    img: serviceImages[1],
+  },
+  {
+    title: "Broken Sprinklers & Tune-Ups",
+    icon: "ti-tool",
+    description:
+      "From damaged sprinkler heads to clogged lines, we handle all repairs and provide thorough tune-ups to keep your system performing its best.",
+    img: serviceImages[2],
+  },
+  {
+    title: "Wire Troubleshooting",
+    icon: "ti-bolt",
+    description:
+      "Electrical issues can be tricky. We diagnose and resolve wiring problems to ensure every zone and controller works flawlessly.",
+    img: serviceImages[3],
+  },
 ];
 ---
 
 <Layout
-	noPadding
-	title="Sprinkler & Irrigation Services"
-	description="Comprehensive sprinkler repair services including leak repair, valve replacement, sprinkler tune-ups, and wire troubleshooting in the DFW area."
-	keywords="sprinkler leak repair, valve replacement, irrigation tune-up, wire troubleshooting, DFW sprinkler services, broken sprinkler repair"
+  noPadding
+  title="Sprinkler & Irrigation Services"
+  description="Comprehensive sprinkler repair services including leak repair, valve replacement, sprinkler tune-ups, and wire troubleshooting in the DFW area."
+  keywords="sprinkler leak repair, valve replacement, irrigation tune-up, wire troubleshooting, DFW sprinkler services, broken sprinkler repair"
 >
-	<div class="services-hero">
-		<p class="services-eyebrow">What We Do</p>
-		<h1>Our Services</h1>
-		<p class="services-sub">Expert irrigation repair and maintenance — done right the first time.</p>
-	</div>
+  <div class="services-hero">
+    <p class="services-eyebrow">What We Do</p>
+    <h1>Our Services</h1>
+    <p class="services-sub">Irrigation repair and maintenance services</p>
+  </div>
 
-	<div class="services-grid">
-		{
-			services.map((service) => (
-				<div class="service-card">
-					<Image
-						src={service.img.src}
-						width={service.img.attributes.width}
-						height={service.img.attributes.height}
-						alt={service.title}
-						class="card-img"
-					/>
-					<div class="card-overlay" />
-					<div class="card-body">
-						<i class={`ti ${service.icon} card-icon`} />
-						<h2>{service.title}</h2>
-						<p>{service.description}</p>
-					</div>
-				</div>
-			))
-		}
-	</div>
+  <div class="services-grid">
+    {
+      services.map((service) => (
+        <div class="service-card">
+          <Image
+            src={service.img.src}
+            width={service.img.attributes.width}
+            height={service.img.attributes.height}
+            alt={service.title}
+            class="card-img"
+          />
+          <div class="card-overlay" />
+          <div class="card-body">
+            <i class={`ti ${service.icon} card-icon`} />
+            <h2>{service.title}</h2>
+            <p>{service.description}</p>
+          </div>
+        </div>
+      ))
+    }
+  </div>
 </Layout>
 
 <style>
-	.services-hero {
-		background: var(--color-secondary);
-		color: #fff;
-		text-align: center;
-		padding: 5rem 2rem 4.5rem;
+  .services-hero {
+    background: var(--color-secondary);
+    color: #fff;
+    text-align: center;
+    padding: 5rem 2rem 4.5rem;
 
-		.services-eyebrow {
-			font-size: 0.85rem;
-			font-weight: 700;
-			letter-spacing: 0.15em;
-			text-transform: uppercase;
-			color: var(--color-primary);
-			margin-bottom: 1rem;
-		}
+    .services-eyebrow {
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--color-primary);
+      margin-bottom: 1rem;
+    }
 
-		h1 {
-			font-size: clamp(2.5rem, 6vw, 4rem);
-			font-weight: 800;
-			line-height: 1.05;
-			margin-bottom: 1rem;
-		}
+    h1 {
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 800;
+      line-height: 1.05;
+      margin-bottom: 1rem;
+    }
 
-		.services-sub {
-			font-size: 1.15rem;
-			opacity: 0.75;
-			max-width: 480px;
-			margin: 0 auto;
-			line-height: 1.6;
-		}
-	}
+    .services-sub {
+      font-size: 1.15rem;
+      opacity: 0.75;
+      max-width: 480px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+  }
 
-	.services-grid {
-		display: grid;
-		grid-template-columns: repeat(2, 1fr);
-		grid-template-rows: repeat(2, 480px);
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 480px);
 
-		@media (max-width: 768px) {
-			grid-template-columns: 1fr;
-			grid-template-rows: repeat(4, 360px);
-		}
-	}
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(4, 360px);
+    }
+  }
 
-	.service-card {
-		position: relative;
-		overflow: hidden;
+  .service-card {
+    position: relative;
+    overflow: hidden;
 
-		&:hover .card-img {
-			transform: scale(1.06);
-		}
+    &:hover .card-img {
+      transform: scale(1.06);
+    }
 
-		&:hover .card-overlay {
-			background: linear-gradient(
-				to top,
-				rgba(33, 37, 64, 0.97) 0%,
-				rgba(33, 37, 64, 0.65) 50%,
-				rgba(33, 37, 64, 0.25) 100%
-			);
-		}
-	}
+    &:hover .card-overlay {
+      background: linear-gradient(
+        to top,
+        rgba(33, 37, 64, 0.97) 0%,
+        rgba(33, 37, 64, 0.65) 50%,
+        rgba(33, 37, 64, 0.25) 100%
+      );
+    }
+  }
 
-	.card-img {
-		position: absolute;
-		inset: 0;
-		width: 100%;
-		height: 100%;
-		object-fit: cover;
-		transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-	}
+  .card-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
 
-	.card-overlay {
-		position: absolute;
-		inset: 0;
-		background: linear-gradient(
-			to top,
-			rgba(33, 37, 64, 0.92) 0%,
-			rgba(33, 37, 64, 0.5) 45%,
-			rgba(33, 37, 64, 0.15) 100%
-		);
-		transition: background 0.4s ease;
-	}
+  .card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to top,
+      rgba(33, 37, 64, 0.92) 0%,
+      rgba(33, 37, 64, 0.5) 45%,
+      rgba(33, 37, 64, 0.15) 100%
+    );
+    transition: background 0.4s ease;
+  }
 
-	.card-body {
-		position: absolute;
-		bottom: 0;
-		left: 0;
-		right: 0;
-		padding: 2.5rem;
-		color: #fff;
+  .card-body {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 2.5rem;
+    color: #fff;
 
-		.card-icon {
-			display: block;
-			font-size: 2rem;
-			color: var(--color-primary);
-			margin-bottom: 0.75rem;
-		}
+    .card-icon {
+      display: block;
+      font-size: 2rem;
+      color: var(--color-primary);
+      margin-bottom: 0.75rem;
+    }
 
-		h2 {
-			font-size: clamp(1.4rem, 2.5vw, 1.85rem);
-			font-weight: 700;
-			margin-bottom: 0.6rem;
-			line-height: 1.2;
-		}
+    h2 {
+      font-size: clamp(1.4rem, 2.5vw, 1.85rem);
+      font-weight: 700;
+      margin-bottom: 0.6rem;
+      line-height: 1.2;
+    }
 
-		p {
-			font-size: 0.97rem;
-			line-height: 1.65;
-			opacity: 0.88;
-			max-width: 420px;
-		}
+    p {
+      font-size: 0.97rem;
+      line-height: 1.65;
+      opacity: 0.88;
+      max-width: 420px;
+    }
 
-		@media (max-width: 768px) {
-			padding: 1.75rem;
-		}
-	}
+    @media (max-width: 768px) {
+      padding: 1.75rem;
+    }
+  }
 </style>

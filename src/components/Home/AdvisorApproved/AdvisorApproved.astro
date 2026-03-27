@@ -6,166 +6,158 @@ import Image from "astro/components/Image.astro";
 import { getImage } from "astro:assets";
 
 const img = await getImage({
-	src: approved,
-	width: 400,
-	height: 400,
-	format: "webp",
-	quality: 80,
+  src: approved,
+  width: 400,
+  height: 400,
+  format: "webp",
+  quality: 80,
 });
 
 const features = [
-	{ icon: "ti-clock", text: "Over 25 years of hands-on irrigation experience" },
-	{ icon: "ti-license", text: "Licensed irrigator — #13364" },
-	{ icon: "ti-shield-check", text: "Honest pricing, no surprises" },
-	{ icon: "ti-map-pin", text: "Proudly serving North Fort Worth & DFW" },
+  { icon: "ti-clock", text: "Over 25 years of hands-on irrigation experience" },
+  { icon: "ti-license", text: "Licensed irrigator" },
+  { icon: "ti-shield-check", text: "Honest pricing, no surprises" },
+  { icon: "ti-map-pin", text: "Proudly serving North Fort Worth & DFW" },
 ];
 ---
 
 <Fragment slot="head">
-	<link rel="preload" href={img.src} as="image" />
+  <link rel="preload" href={img.src} as="image" />
 </Fragment>
 
 <section class="advisor-section">
-	<div class="advisor-inner">
-		<div class="advisor-text">
-			<p class="eyebrow">Why Choose Us</p>
-			<h2 class="title">
-				Your yard deserves<br />an expert, not a guess
-			</h2>
-			<ul class="features">
-				{
-					features.map((f) => (
-						<li class="feature">
-							<span class="feature-icon">
-								<i class={`ti ${f.icon}`} />
-							</span>
-							<span>{f.text}</span>
-						</li>
-					))
-				}
-			</ul>
-			<Button
-				color="primary"
-				size="xlarge"
-				onclick={`window.location.href='tel:${MAIN_PHONE_NUMBER}';`}
-			>
-				Call {MAIN_PHONE_NUMBER}
-			</Button>
-		</div>
-		<div class="advisor-badge">
-			<Image
-				src={img.src}
-				alt="Home Advisor Screened & Approved"
-				width={img.attributes.width}
-				height={img.attributes.height}
-			/>
-			<p class="badge-caption">Screened &amp; Approved</p>
-		</div>
-	</div>
+  <div class="advisor-inner">
+    <div class="advisor-text">
+      <p class="eyebrow">Why Choose Us</p>
+      <h2 class="title">
+        We've been fixing irrigation<br />systems in DFW for 25 years
+      </h2>
+      <ul class="features">
+        {
+          features.map((f) => (
+            <li class="feature">
+              <span class="feature-icon">
+                <i class={`ti ${f.icon}`} />
+              </span>
+              <span>{f.text}</span>
+            </li>
+          ))
+        }
+      </ul>
+      <Button
+        color="primary"
+        size="xlarge"
+        onclick={`window.location.href='tel:${MAIN_PHONE_NUMBER}';`}
+      >
+        Call {MAIN_PHONE_NUMBER}
+      </Button>
+    </div>
+    <div class="advisor-badge">
+      <Image
+        src={img.src}
+        alt="Home Advisor Screened & Approved"
+        width={img.attributes.width}
+        height={img.attributes.height}
+      />
+    </div>
+  </div>
 </section>
 
 <style>
-	.advisor-section {
-		background: var(--color-secondary);
-		color: #fff;
-		width: 100%;
-		padding: 6rem 4rem;
+  .advisor-section {
+    background: var(--color-secondary);
+    color: #fff;
+    width: 100%;
+    padding: 6rem 4rem;
 
-		@media (max-width: 768px) {
-			padding: 4rem 1.5rem;
-		}
-	}
+    @media (max-width: 768px) {
+      padding: 4rem 1.5rem;
+    }
+  }
 
-	.advisor-inner {
-		max-width: 1100px;
-		margin: 0 auto;
-		display: flex;
-		align-items: center;
-		gap: 5rem;
+  .advisor-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 5rem;
 
-		@media (max-width: 900px) {
-			flex-direction: column;
-			gap: 3rem;
-			align-items: flex-start;
-		}
-	}
+    @media (max-width: 900px) {
+      flex-direction: column;
+      gap: 3rem;
+      align-items: flex-start;
+    }
+  }
 
-	.advisor-text {
-		flex: 1;
-		display: flex;
-		flex-direction: column;
-		gap: 2rem;
+  .advisor-text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
 
-		.eyebrow {
-			font-size: 0.8rem;
-			font-weight: 700;
-			letter-spacing: 0.15em;
-			text-transform: uppercase;
-			color: var(--color-primary);
-		}
+    .eyebrow {
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--color-primary);
+    }
 
-		.title {
-			font-size: clamp(2rem, 4vw, 2.75rem);
-			font-weight: 800;
-			line-height: 1.15;
-		}
-	}
+    .title {
+      font-size: clamp(2rem, 4vw, 2.75rem);
+      font-weight: 800;
+      line-height: 1.15;
+    }
+  }
 
-	.features {
-		list-style: none;
-		padding: 0;
-		margin: 0;
-		display: flex;
-		flex-direction: column;
-		gap: 1rem;
-	}
+  .features {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
 
-	.feature {
-		display: flex;
-		align-items: center;
-		gap: 1rem;
-		font-size: 1.05rem;
-		opacity: 0.9;
+  .feature {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1.05rem;
+    opacity: 0.9;
 
-		.feature-icon {
-			width: 2.25rem;
-			height: 2.25rem;
-			background: rgba(152, 164, 90, 0.18);
-			border-radius: 50%;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			flex-shrink: 0;
+    .feature-icon {
+      width: 2.25rem;
+      height: 2.25rem;
+      background: rgba(152, 164, 90, 0.18);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
 
-			i {
-				font-size: 1.1rem;
-				color: var(--color-primary);
-			}
-		}
-	}
+      i {
+        font-size: 1.1rem;
+        color: var(--color-primary);
+      }
+    }
+  }
 
-	.advisor-badge {
-		flex-shrink: 0;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		gap: 1rem;
+  .advisor-badge {
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
 
-		img {
-			width: 220px;
-			height: auto;
-			filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.4));
-		}
+    img {
+      width: 320px;
+      height: auto;
+      filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.4));
+    }
 
-		.badge-caption {
-			font-size: 0.85rem;
-			opacity: 0.55;
-			letter-spacing: 0.05em;
-			text-transform: uppercase;
-		}
-
-		@media (max-width: 900px) {
-			align-self: center;
-		}
-	}
+    @media (max-width: 900px) {
+      align-self: center;
+    }
+  }
 </style>

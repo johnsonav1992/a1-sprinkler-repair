@@ -5,22 +5,29 @@ import randy from "../assets/randy_headshot.jpg";
 import { getImage } from "astro:assets";
 
 const img = await getImage({
-	src: randy,
-	width: 320,
-	height: 380,
-	format: "webp",
-	quality: 80,
+  src: randy,
+  width: 320,
+  height: 380,
+  format: "webp",
+  quality: 80,
 });
 ---
 
-<Layout 
+<Layout
   noPadding
   title="About Randy Hair & A-1 Sprinkler Repair"
   description="Meet Randy Hair, founder of A-1 Sprinkler Repair with over 25 years of expertise in irrigation system repair and maintenance in the DFW area."
   keywords="Randy Hair, A-1 Sprinkler Repair owner, irrigation expert Dallas, sprinkler repair experience, DFW irrigation specialist"
 >
+  <div class="about-hero">
+    <p class="about-eyebrow">The Man Behind the Work</p>
+    <h1>About Randy Hair</h1>
+    <p class="about-hero-sub">
+      Owner and licensed irrigator serving DFW for over 25 years.
+    </p>
+  </div>
+
   <div class="container">
-    <h1 class="about-title">About</h1>
     <div class="about-content">
       <div class="about-image">
         <Image
@@ -33,17 +40,15 @@ const img = await getImage({
         <Fragment slot="head">
           <link rel="preload" href={img.src} as="image" />
         </Fragment>
-        <p class="photo-caption">Randy Hair — Owner & Licensed Irrigator</p>
+        <p class="photo-caption">Randy Hair, Owner &amp; Licensed Irrigator</p>
       </div>
       <div class="about-bio">
         <p>
           For over 25 years, Randy Hair and A-1 Sprinkler Repair have been
-          providing exceptional irrigation services to homeowners. Randy brings
-          specialized knowledge in all areas of irrigation system repair and his
-          passion lies in solving challenging irrigation problems and routine
-          maintenance to keep your lawn and garden thriving. Above all, he is
-          dedicated to giving the best possible customer experience, ensuring
-          that every job is done right and stands the test of time.
+          providing irrigation services to homeowners across the DFW area. Randy
+          specializes in all aspects of irrigation system repair and takes real
+          satisfaction in diagnosing the problems others miss. His focus is on
+          getting it done right and making sure it holds up.
         </p>
       </div>
     </div>
@@ -51,127 +56,123 @@ const img = await getImage({
 </Layout>
 
 <style>
+  .about-hero {
+    background: var(--color-secondary);
+    color: #fff;
+    text-align: center;
+    padding: 5rem 2rem 4.5rem;
+
+    .about-eyebrow {
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--color-primary);
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 800;
+      line-height: 1.05;
+      margin-bottom: 1rem;
+    }
+
+    .about-hero-sub {
+      font-size: 1.15rem;
+      opacity: 0.75;
+      max-width: 480px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+  }
+
   .container {
     max-width: 1000px;
     margin: 0 auto;
-    padding: 2.5rem 1.5rem 2rem 1.5rem;
+    padding: 5rem 2rem;
+  }
+
+  .about-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 4rem;
+    width: 100%;
+  }
+
+  .about-image {
+    flex: 0 0 320px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
-    min-height: 0;
-    height: 80vh;
-    justify-content: center;
+    gap: 0.75rem;
 
-    .about-title {
-      font-size: 3rem;
-      font-weight: 800;
-      margin-bottom: 2.5rem;
-      letter-spacing: 0.01em;
-      text-align: center;
-      color: var(--color-primary);
+    img {
+      border-radius: 1.5rem;
+      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.13);
+      width: 320px;
+      height: 380px;
+      object-fit: cover;
+      background: #f6f6f6;
     }
 
-    .about-content {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: center;
-      gap: 3rem;
-      width: 100%;
+    .photo-caption {
+      font-size: 0.9rem;
+      color: var(--color-secondary);
+      opacity: 0.7;
+      text-align: center;
+      font-style: italic;
+    }
+  }
 
-      .about-image {
-        flex: 0 0 340px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 0.75rem;
+  .about-bio {
+    flex: 1 1 0%;
 
-        img {
-          border-radius: 1.5rem;
-          box-shadow: 0 6px 24px rgba(0, 0, 0, 0.13);
-          width: 320px;
-          height: 380px;
-          object-fit: cover;
-          background: #f6f6f6;
-        }
-
-        .photo-caption {
-          font-size: 0.9rem;
-          color: var(--color-secondary);
-          opacity: 0.7;
-          text-align: center;
-          font-style: italic;
-        }
-      }
-
-      .about-bio {
-        flex: 1 1 0%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 100%;
-
-        p {
-          font-size: 1.25rem;
-          line-height: 1.7;
-          color: var(--color-text);
-          margin: 0;
-          text-align: left;
-          max-width: 540px;
-        }
-      }
+    p {
+      font-size: 1.25rem;
+      line-height: 1.75;
+      color: var(--color-text);
+      margin: 0;
+      text-align: left;
+      max-width: 540px;
     }
   }
 
   @media (max-width: 900px) {
     .container {
-      height: auto;
-      min-height: 0;
-      padding: 2rem 0.5rem 1.5rem 0.5rem;
+      padding: 3rem 1.5rem;
+    }
 
-      .about-title {
-        font-size: 2.2rem;
-        margin-bottom: 1.5rem;
-        color: var(--color-primary);
+    .about-content {
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .about-image {
+      flex: none;
+
+      img {
+        width: 220px;
+        height: 260px;
       }
-      .about-content {
-        flex-direction: column;
-        align-items: center;
-        gap: 2rem;
+    }
 
-        .about-image {
-          width: 100%;
-
-          img {
-            width: 220px;
-            height: 260px;
-          }
-        }
-        .about-bio {
-          width: 100%;
-          align-items: center;
-
-          p {
-            text-align: left;
-            max-width: 100%;
-            padding-inline: 1.25rem;
-          }
-        }
-      }
+    .about-bio p {
+      text-align: left;
+      max-width: 100%;
     }
   }
 
   @media (min-width: 1200px) {
-    .container {
-      .about-content {
-        .about-image {
-          img {
-            width: 400px;
-            height: 480px;
-          }
-        }
+    .about-image {
+      flex: 0 0 400px;
+
+      img {
+        width: 400px;
+        height: 480px;
       }
     }
   }
